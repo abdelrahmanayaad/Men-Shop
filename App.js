@@ -1,14 +1,22 @@
-import { Text, View } from 'react-native'
-import React, { Component } from 'react'
-
-export class App extends Component {
+import React, {Component} from 'react';
+import {Text, View, StyleSheet} from 'react-native';
+import LoginScreen from './src/screens/Auth/LoginScreen';
+export class App extends React.Component {
   render() {
     return (
-      <View style={{flex:1,justifyContent:"center",alignItems:"center"}}>
-        <Text>Hello World !</Text>
-      </View>
-    )
+      <>
+        <LoginScreen />
+      </>
+    );
   }
 }
 
-export default App
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+});
+
+export default App;
