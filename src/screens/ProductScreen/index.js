@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import Price from '../../components/PriceComponent';
 import Button from '../../components/Button';
 import styles from './styles';
+import IonIcon from '../../components/IonIcons';
 import {dummyProductWithDiscount} from '../../utils/DummyData';
 
 function getProduct(productId) {
@@ -17,7 +18,7 @@ function ProductScreen(props) {
     <View style={styles.container}>
       <Image source={{uri: product.image}} style={styles.imageStyle} />
       <View style={styles.headerStyle}>
-        <Icon name="arrowleft" style={styles.iconStyle} />
+        <IonIcon name="arrow-back" style={styles.iconStyle} />
         <Text style={styles.titleStyle}>Product Name</Text>
       </View>
       <View style={styles.underProductImageStyle}>

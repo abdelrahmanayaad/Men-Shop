@@ -7,7 +7,7 @@ import styles from './styles';
 function Product(props) {
   const {product} = props;
   return (
-    <View>
+    <View style={styles.container}>
       <Cart>
         <Image style={styles.productImageStyle} source={{uri: product.image}} />
       </Cart>

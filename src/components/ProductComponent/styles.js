@@ -4,6 +4,7 @@ const {width} = Dimensions.get('window');
 const imageWidth = width / 2 - 15;
 const imageHeight = imageWidth * 1.7;
 const styles = ScaledSheet.create({
+  container: {alignItems: 'flex-start'},
   productImageStyle: {
     width: imageWidth,
     height: imageHeight,
