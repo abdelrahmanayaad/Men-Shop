@@ -5,7 +5,7 @@ const styles = ScaledSheet.create({
     padding: '15@s',
   },
   headerTitle: {
-    fontSize: '20@s',
+    fontSize: '18@s',
     color: '#000',
     fontWeight: 'bold',
     textAlign: 'center',

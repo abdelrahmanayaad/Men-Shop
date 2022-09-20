@@ -12,7 +12,7 @@ function Button(props) {
           padding: 16,
           justifyContent: 'center',
           alignItems: 'center',
-          borderRadius: 10,
+          borderRadius: 5,
         },
         buttonStyle,
       ]}>

@@ -2,19 +2,13 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    padding: '15@s',
+    paddingLeft: '10@s',
   },
-  headerTitle: {
+  title: {
     fontSize: '20@s',
-    color: '#000',
     fontWeight: 'bold',
-    textAlign: 'center',
-    marginTop: '30@vs',
-    marginBottom: '80@vs',
-  },
-  buttonView: {
-    flex: 1,
-    justifyContent: 'flex-end',
+    color: '#000',
+    marginVertical: '10@vs',
   },
 });
 

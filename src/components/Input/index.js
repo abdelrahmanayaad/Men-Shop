@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, TextInput} from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 function Input(props) {
   const {
@@ -19,6 +20,8 @@ function Input(props) {
     stacked,
     left,
     right,
+    iconName,
+    iconStyle,
     keyboardType,
   } = props;
   return (
@@ -46,14 +49,7 @@ function Input(props) {
           underlinedStyle,
         ]}>
         {left && (
-          <View
-            style={{
-              width: 30,
-              height: 30,
-              borderRadius: 10,
-              backgroundColor: '#aaa',
-            }}
-          />
+          <Icon name={iconName} size={24} style={iconStyle} color={'#000'} />
         )}
         <TextInput
           keyboardType={keyboardType || 'default'}
