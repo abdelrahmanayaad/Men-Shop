@@ -3,9 +3,9 @@ import {View, Text} from 'react-native';
 import styles from './styles';
 
 function Cart(props) {
-  const {...rest} = props;
+  const {style, ...rest} = props;
   return (
-    <View style={styles.cartContainer}>
+    <View style={[styles.cartContainer, style]}>
       <View {...rest} style={styles.cart} />
     </View>
   );

@@ -56,7 +56,9 @@ function Input(props) {
           placeholder={stacked ? '' : placeholder}
           style={[{flex: 1, textAlign: textAlign || 'left', padding: 0}, style]}
         />
-        {right}
+        {right && (
+          <Icon name={iconName} size={24} style={iconStyle} color={'#000'} />
+        )}
       </View>
     </>
   );
