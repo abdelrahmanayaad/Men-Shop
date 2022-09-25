@@ -6,8 +6,8 @@ import styles from './styles';
 function CategoryComponent(props) {
   const {category} = props;
   return (
-    <View>
-      <Cart>
+    <View style={styles.container}>
+      <Cart style={styles.cart}>
         <Image
           style={styles.categoryImageStyle}
           source={{uri: category.image}}

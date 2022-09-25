@@ -1,5 +1,8 @@
 import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
+  cart: {
+    marginBottom: '15@vs',
+  },
   container: {
     flexDirection: 'row',
     padding: '15@s',

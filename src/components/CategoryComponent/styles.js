@@ -4,6 +4,12 @@ const {width} = Dimensions.get('window');
 const CatWidth = width / 2.2;
 const catheight = CatWidth * 1.5;
 const styles = ScaledSheet.create({
+  container: {
+    alignItems: 'flex-start',
+  },
+  cart: {
+    marginEnd: '5@s',
+  },
   categoryImageStyle: {
     width: CatWidth,
     height: catheight,

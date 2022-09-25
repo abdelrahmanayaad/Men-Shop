@@ -8,7 +8,7 @@ import styles from './styles';
 function CartItemComponent(props) {
   const {cartItem} = props;
   return (
-    <Cart>
+    <Cart style={styles.cart}>
       <View style={styles.container}>
         <Image source={{uri: cartItem.image}} style={styles.image} />
         <View style={styles.rightWrapper}>

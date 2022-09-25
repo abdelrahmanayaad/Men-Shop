@@ -1,6 +1,9 @@
 import {ScaledSheet} from 'react-native-size-matters';
 import {TINTCOLOR} from '../../constants/Constants';
 const styles = ScaledSheet.create({
+  cart: {
+    marginBottom: '10@vs',
+  },
   container: {
     flexDirection: 'row',
     padding: '10@s',

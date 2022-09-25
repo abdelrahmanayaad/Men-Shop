@@ -1,14 +1,26 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, FlatList} from 'react-native';
 import styles from './styles';
 import OrderComponent from '../../components/OrderComponent';
-import {dummyProductWithDiscount} from '../../utils/DummyData';
+import {dummyProducts, dummyProductWithDiscount} from '../../utils/DummyData';
+
+function renderOrders({item}) {
+  return <OrderComponent orderItem={item} />;
+}
+
+function renderOrdersList(order) {
+  return (
+    <FlatList
+      data={order}
+      renderItem={renderOrders}
+      showsVerticalScrollIndicator={false}
+    />
+  );
+}
 
 function OrdersScreen(props) {
   return (
-    <View style={styles.container}>
-      <OrderComponent orderItem={dummyProductWithDiscount} />
-    </View>
+    <View style={styles.container}>{renderOrdersList(dummyProducts)}</View>
   );
 }
 

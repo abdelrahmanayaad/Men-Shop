@@ -8,7 +8,7 @@ function Product(props) {
   const {product} = props;
   return (
     <View style={styles.container}>
-      <Cart>
+      <Cart style={styles.cart}>
         <Image style={styles.productImageStyle} source={{uri: product.image}} />
       </Cart>
       <Price price={product.price} discount={product.discount} />

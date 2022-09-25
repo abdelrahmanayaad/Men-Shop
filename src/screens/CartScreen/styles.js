@@ -2,10 +2,9 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    padding: '15@s',
+    paddingHorizontal: '15@s',
   },
   buttonWrapper: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-end',
     justifyContent: 'space-between',
