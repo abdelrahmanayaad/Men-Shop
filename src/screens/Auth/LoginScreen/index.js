@@ -5,6 +5,7 @@ import Button from '../../../components/Button';
 import styles from './styles';
 
 function LoginScreen(props) {
+  const {navigation} = props;
   return (
     <View style={styles.container}>
       <Text style={styles.headerTitle}>Enter Your Phone Number</Text>
@@ -17,7 +18,12 @@ function LoginScreen(props) {
         style={{padding: 10, fontSize: 16, color: '#000'}}
       />
       <View style={styles.buttonView}>
-        <Button title="DONE" />
+        <Button
+          onPress={() => {
+            navigation.navigate('ConfirmationCodeScreen');
+          }}
+          title="DONE"
+        />
       </View>
     </View>
   );

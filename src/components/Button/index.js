@@ -6,6 +6,7 @@ function Button(props) {
     props;
   return (
     <TouchableOpacity
+      {...props}
       style={[
         {
           backgroundColor: backgroundColor || '#000',

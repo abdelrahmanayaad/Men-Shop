@@ -1,12 +1,18 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, TouchableOpacity} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Cart from '../CartComponent';
 import styles from './styles';
 
 function CategoryComponent(props) {
+  const navigation = useNavigation();
   const {category} = props;
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('CategoryScreen');
+      }}
+      style={styles.container}>
       <Cart style={styles.cart}>
         <Image
           style={styles.categoryImageStyle}
@@ -14,7 +20,7 @@ function CategoryComponent(props) {
         />
       </Cart>
       <Text style={styles.categoryNameStyle}>{category.name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 }
 

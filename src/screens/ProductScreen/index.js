@@ -12,7 +12,7 @@ function getProduct(productId) {
 }
 
 function ProductScreen(props) {
-  const {productId} = props;
+  const {productId} = props.route.params;
   const product = getProduct(productId);
   return (
     <View style={styles.container}>
