@@ -6,7 +6,8 @@ export class App extends React.Component {
   render() {
     return (
       <>
-        <AppContainer isAuth={false} />
+        {/* <AppContainer isAuth={false} /> */}
+        <Test />
       </>
     );
   }

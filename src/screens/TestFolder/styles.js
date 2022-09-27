@@ -19,10 +19,10 @@ const styles = ScaledSheet.create({
     backgroundColor: '#000',
     alignSelf: 'center',
     borderRadius: 10,
+    marginTop: '20@vs',
   },
   error: {
     color: 'red',
-    marginBottom: '20@vs',
   },
   title: {
     fontSize: '16@s',
