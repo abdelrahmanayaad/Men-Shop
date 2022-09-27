@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import IonIcon from '../IonIcons';
 
 function Input(props) {
   const {
@@ -23,6 +24,10 @@ function Input(props) {
     iconName,
     iconStyle,
     keyboardType,
+    showValidationFeedBack,
+    isValid,
+    touched,
+    ...rest
   } = props;
   return (
     <>
@@ -37,7 +42,7 @@ function Input(props) {
             paddingHorizontal: paddingHorizontal || 5,
             flexDirection: 'row',
             alignItems: 'center',
-            marginBottom: 20,
+            marginBottom: isValid ? 0 : 0,
           },
           (stacked || underlined) && {
             borderBottomWidth: borderBottomWidth || 1,
@@ -52,12 +57,19 @@ function Input(props) {
           <Icon name={iconName} size={24} style={iconStyle} color={'#000'} />
         )}
         <TextInput
+          {...rest}
           keyboardType={keyboardType || 'default'}
           placeholder={stacked ? '' : placeholder}
           style={[{flex: 1, textAlign: textAlign || 'left', padding: 0}, style]}
         />
         {right && (
           <Icon name={iconName} size={24} style={iconStyle} color={'#000'} />
+        )}
+        {showValidationFeedBack && touched && (
+          <IonIcon
+            style={{fontSize: 26, color: isValid ? 'green' : 'red'}}
+            name={isValid ? 'checkmark' : 'close'}
+          />
         )}
       </View>
     </>

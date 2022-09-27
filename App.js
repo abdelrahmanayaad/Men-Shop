@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet} from 'react-native';
-import OrdersScreen from './src/screens/OrderScreen';
 import AppContainer from './src/navigation';
+import Test from './src/screens/TestFolder';
 export class App extends React.Component {
   render() {
     return (
       <>
-        <AppContainer isAuth={true} />
+        <AppContainer isAuth={false} />
       </>
     );
   }
