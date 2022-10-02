@@ -4,18 +4,41 @@ import Input from '../../../components/Input';
 import Button from '../../../components/Button';
 import styles from './styles';
 import useInput from '../../../utils/useInput';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {TOKEN_KEY} from '../../../constants/Constants';
 
 function ConfirmationCodeScreen(props) {
+  const {navigation} = props;
   const [code, setCode] = useInput('', [
     {key: 'isConfirmationCode', codeLength: 4},
   ]);
+  const {phone} = props.route.params;
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOnPress = () => {
-    if (!code.isValid) {
-      alert('you ender wrong code');
-      return;
+    if (code.isValid) {
+      setIsLoading(true);
+      axios
+        .post('/verify/validate', {phone, code: code.value})
+        .then(res => {
+          console.log(res.data);
+          const {token} = res.data;
+          axios.defaults.headers.Authorization = 'Bearer' + token;
+          AsyncStorage.setItem(TOKEN_KEY, token);
+          //   .then(() => {
+          //   AsyncStorage.getItem(TOKEN_KEY).then(value => {
+          //     console.log(value);
+          //   });
+          // });
+        })
+        .catch(err => {
+          console.log('error', err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
-    alert(code.value);
   };
 
   return (
@@ -34,7 +57,12 @@ function ConfirmationCodeScreen(props) {
         onSubmitEditing={handleOnPress}
       />
       <View style={styles.buttonView}>
-        <Button title="DONE" onPress={handleOnPress} />
+        <Button
+          title="DONE"
+          onPress={handleOnPress}
+          disabled={!code.isValid}
+          Loading={isLoading}
+        />
       </View>
     </View>
   );

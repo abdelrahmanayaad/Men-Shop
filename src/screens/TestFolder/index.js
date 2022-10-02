@@ -63,9 +63,9 @@ function Test(props) {
       </TouchableOpacity>
       {isLoading && <ActivityIndicator size={30} color="#000" />}
       <View>
-        {repos.map(res => {
+        {repos.map((res, idx) => {
           return (
-            <View style={styles.viewRepo}>
+            <View key={idx} style={styles.viewRepo}>
               <Text style={styles.title}>{res.name}</Text>
             </View>
           );

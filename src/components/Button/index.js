@@ -1,9 +1,17 @@
 import React from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity, ActivityIndicator} from 'react-native';
 
 function Button(props) {
-  const {title, backgroundColor, color, fontSize, buttonStyle, titleStyle} =
-    props;
+  const {
+    title,
+    backgroundColor,
+    color,
+    fontSize,
+    buttonStyle,
+    titleStyle,
+    Loading,
+    disabled,
+  } = props;
   return (
     <TouchableOpacity
       {...props}
@@ -16,6 +24,7 @@ function Button(props) {
           borderRadius: 5,
         },
         buttonStyle,
+        disabled ? {backgroundColor: '#aaa'} : null,
       ]}>
       <Text
         style={[
@@ -26,7 +35,7 @@ function Button(props) {
           },
           titleStyle,
         ]}>
-        {title}
+        {Loading ? <ActivityIndicator size={30} color="#fff" /> : title}
       </Text>
     </TouchableOpacity>
   );
