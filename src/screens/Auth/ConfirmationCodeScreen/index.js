@@ -7,6 +7,7 @@ import useInput from '../../../utils/useInput';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {TOKEN_KEY} from '../../../constants/Constants';
+import Dispatcher from '../../../Flux/Dispatcher';
 
 function ConfirmationCodeScreen(props) {
   const {navigation} = props;
@@ -23,8 +24,10 @@ function ConfirmationCodeScreen(props) {
         .post('/verify/validate', {phone, code: code.value})
         .then(res => {
           console.log(res.data);
-          const {token} = res.data;
+          const {token, userData} = res.data;
           axios.defaults.headers.Authorization = 'Bearer' + token;
+          Dispatcher.dispatch({type: 'SET_TOKEN', payload: {token: token}});
+          Dispatcher.dispatch({type: 'SET_USER', payload: {user: userData}});
           AsyncStorage.setItem(TOKEN_KEY, token);
           //   .then(() => {
           //   AsyncStorage.getItem(TOKEN_KEY).then(value => {

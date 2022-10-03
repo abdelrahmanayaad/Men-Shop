@@ -14,7 +14,7 @@ function CartItemComponent(props) {
       <View style={styles.container}>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('ProductScreen');
+            navigation.navigate('ProductScreen', {productId: 1});
           }}>
           <Image source={{uri: cartItem.image}} style={styles.image} />
         </TouchableOpacity>

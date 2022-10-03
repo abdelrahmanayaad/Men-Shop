@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import authStore from '../../Flux/AuthStore';
 import styles from './styles';
 
 function AccountScreen(props) {
   const {navigation} = props;
+  const [user, setUser] = useState(authStore.user);
+
+  const handleSetUser = () => {
+    setUser(authStore.user);
+  };
+
+  useEffect(() => {
+    authStore.on('change', handleSetUser);
+  }, []);
 
   function renderAccountData() {
     return (
@@ -12,8 +22,10 @@ function AccountScreen(props) {
         <Icon name="person" color={'#000'} style={styles.personIcon} />
         <View style={styles.verticalLine} />
         <View style={styles.personalDataView}>
-          <Text style={styles.personalDataName}>Abdelrahman Ayad</Text>
-          <Text style={styles.personalDataPhone}>01026669167</Text>
+          <Text style={styles.personalDataName}>
+            {authStore.user.name || 'Enter Your Name'}
+          </Text>
+          <Text style={styles.personalDataPhone}>0{authStore.user.phone}</Text>
         </View>
       </View>
     );
